@@ -1,4 +1,4 @@
-package br.com.d2.figurinha.repository;
+package br.com.d2.figurinha.service.repository;
 
 
 import java.util.List;

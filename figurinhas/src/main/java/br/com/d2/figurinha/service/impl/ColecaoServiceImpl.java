@@ -2,6 +2,7 @@ package br.com.d2.figurinha.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import br.com.d2.figurinha.model.entity.dto.FigurinhaFactory;
 import br.com.d2.figurinha.model.entity.dto.SlotAlbumDTO;
 import br.com.d2.figurinha.model.enumeration.Raridade;
 import br.com.d2.figurinha.model.mapper.FigurinhaMapper;
-import br.com.d2.figurinha.repository.FigurinhaRepository;
+import br.com.d2.figurinha.service.repository.FigurinhaRepository;
 import br.com.d2.figurinha.service.AlbumClientService;
 import br.com.d2.figurinha.service.ColecaoService;
 
@@ -22,7 +23,7 @@ public class ColecaoServiceImpl implements ColecaoService {
 	private FigurinhaRepository repository;
 
 	private FigurinhaMapper mapper;
-	
+
 	private AlbumClientService albumClient;
 	
 	
@@ -63,7 +64,7 @@ public class ColecaoServiceImpl implements ColecaoService {
 		lista.addAll(criarFigurinhas(idColecao, Raridade.GRAU_2, 3));
 		lista.addAll(criarFigurinhas(idColecao, Raridade.GRAU_1, 1));
 		
-		List<SlotAlbumDTO> slots = albumClient.getSlots(idColecao);
+		List<SlotAlbumDTO> slots = albumClient.getSlots(UUID.fromString(idColecao));
 		
 		for (int i = 0; i < slots.size(); i++) {
 			lista.get(i).setId(slots.get(i).getIdentificador().toString());

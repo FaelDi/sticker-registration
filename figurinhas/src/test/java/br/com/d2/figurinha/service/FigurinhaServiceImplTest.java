@@ -26,7 +26,7 @@ import br.com.d2.figurinha.model.entity.Figurinha;
 import br.com.d2.figurinha.model.entity.dto.FigurinhaDTO;
 import br.com.d2.figurinha.model.enumeration.Raridade;
 import br.com.d2.figurinha.model.mapper.FigurinhaMapper;
-import br.com.d2.figurinha.repository.FigurinhaRepository;
+import br.com.d2.figurinha.service.repository.FigurinhaRepository;
 import br.com.d2.figurinha.service.impl.FigurinhaServiceImpl;
 import jakarta.persistence.EntityNotFoundException;
 

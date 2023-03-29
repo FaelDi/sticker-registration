@@ -20,7 +20,7 @@ import br.com.d2.figurinha.model.entity.dto.FigurinhaDTO;
 import br.com.d2.figurinha.model.entity.dto.SlotAlbumDTO;
 import br.com.d2.figurinha.model.enumeration.Raridade;
 import br.com.d2.figurinha.model.mapper.FigurinhaMapper;
-import br.com.d2.figurinha.repository.FigurinhaRepository;
+import br.com.d2.figurinha.service.repository.FigurinhaRepository;
 import br.com.d2.figurinha.service.impl.ColecaoServiceImpl;
 
 public class ColecaoServiceImplTest {
@@ -89,7 +89,7 @@ public class ColecaoServiceImplTest {
         when(repository.getVerificaExistenciaColecao(anyString())).thenReturn(0);
         when(repository.saveAll(listaFigurinhas)).thenReturn(listaFigurinhas);
         when(mapper.parseListDTO(listaFigurinhas)).thenReturn(new ArrayList<>());
-        when(albumClient.getSlots(colecao.getIdColecao())).thenReturn(slots);
+        when(albumClient.getSlots(UUID.fromString(colecao.getIdColecao()))).thenReturn(slots);
         
 
         List<FigurinhaDTO> result = colecaoService.criarColecao(colecao);
